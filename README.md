@@ -40,7 +40,7 @@ tableHeader(table, ['color', 'code'], { border: true })
 
 Returns a new table with `header` and the same data.
 
-If `opts.border` is `false`, no border is set for a header.
+If `opts.border` is `false` (the default), no border is set for a header.
 
 If `opts.border` is a single-character string, it is used to create a border.
 
