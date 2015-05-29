@@ -4,6 +4,9 @@
   "description": "Add header to a text table",
   "author": "Eugene Sharygin <eush77@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
   "files": [
     "index.js"
   ],
@@ -22,5 +25,7 @@
     "border"
   ],
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "tape": "^4.0.0"
+  }
 }
