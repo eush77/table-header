@@ -24,7 +24,9 @@
     "text-table",
     "border"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "repeat-string": "^1.5.2"
+  },
   "devDependencies": {
     "tape": "^4.0.0"
   }
