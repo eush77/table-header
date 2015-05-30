@@ -24,6 +24,10 @@ var columnWidths = function (table) {
 
 module.exports = function (table, header, opts) {
   opts = opts || {};
+  if (opts.border == null) {
+    opts.border = true;
+  }
+
   header = [header];
 
   if (opts.border) {
