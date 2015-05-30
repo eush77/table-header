@@ -3,20 +3,14 @@
 var repeat = require('repeat-string');
 
 
-var rowWidths = function (row) {
-  return row.map(function (cell) {
-    return String(cell).length;
-  });
-};
-
-
-var columnWidths = function (table) {
+var columnWidths = function (table, stringLength) {
   return table.reduce(function (widths, row) {
-    rowWidths(row).forEach(function (width, i) {
-      if (widths[i] < width) {
-        widths[i] = width;
-      }
-    });
+    row.map(stringLength)
+      .forEach(function (width, i) {
+        if (widths[i] < width) {
+          widths[i] = width;
+        }
+      });
     return widths;
   }, table[0].map(function () { return 0 }));
 };
@@ -24,6 +18,7 @@ var columnWidths = function (table) {
 
 var addHeader = function (table, header, opts) {
   opts = opts || {};
+  opts.stringLength = opts.stringLength || function (s) { return String(s).length };
   if (opts.border == null) {
     opts.border = true;
   }
@@ -32,7 +27,7 @@ var addHeader = function (table, header, opts) {
     if (opts.border == true) {
       opts.border = '-';
     }
-    table.unshift(columnWidths(table).map(function (width) {
+    table.unshift(columnWidths(table, opts.stringLength).map(function (width) {
       return repeat(opts.border, width);
     }));
   }

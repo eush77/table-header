@@ -40,11 +40,11 @@ tableHeader(table, ['color', 'code'])
 
 Returns a new table with `header` and the same data.
 
-If `opts.border` is `false`, no border is set for a header.
+Options:
 
-If `opts.border` is a single-character string, it is used to create a border.
+- `border` — `false` for no border, `true` (default) for `-`-delimited border, single-character string for custom-delimited border.
 
-If `opts.border` is `true` (the default), the default character is used (`-`).
+- `stringLength` — string length function, e.g. to ignore escape codes.
 
 ## `tableHeader.add(table, header, [opts])`
 
@@ -53,8 +53,10 @@ Add header to existing `table`, modifying it.
 ## Related
 
 - [text-table] module turns these tables to strings.
+- [string-length] — string length function that ignores escape codes.
 
 [text-table]: http://npm.im/text-table
+[string-length]: http://npm.im/string-length
 
 ## Install
 
