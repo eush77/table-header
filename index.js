@@ -27,7 +27,11 @@ var addHeader = function (table, header, opts) {
     if (opts.border == true) {
       opts.border = '-';
     }
-    table.unshift(columnWidths(table, opts.stringLength).map(function (width) {
+    table.unshift(columnWidths(table, opts.stringLength).map(function (width, i) {
+      var headerWidth = opts.stringLength(header[i]);
+      if (width < headerWidth) {
+        width = headerWidth;
+      }
       return repeat(opts.border, width);
     }));
   }
