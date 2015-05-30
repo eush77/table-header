@@ -2,7 +2,7 @@
 
 # table-header
 
-[![Dependency Status][david-badge]][david]
+[![Build Status](https://travis-ci.org/eush77/table-header.svg?branch=master)](https://travis-ci.org/eush77/table-header) [![Dependency Status][david-badge]][david]
 
 Add header to a text table, with border.
 
