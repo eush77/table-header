@@ -22,22 +22,29 @@ var columnWidths = function (table) {
 };
 
 
-module.exports = function (table, header, opts) {
+var addHeader = function (table, header, opts) {
   opts = opts || {};
   if (opts.border == null) {
     opts.border = true;
   }
 
-  header = [header];
-
   if (opts.border) {
     if (opts.border == true) {
       opts.border = '-';
     }
-    header.push(columnWidths(table).map(function (width) {
+    table.unshift(columnWidths(table).map(function (width) {
       return repeat(opts.border, width);
     }));
   }
 
-  return header.concat(table);
+  table.unshift(header);
 };
+
+
+exports = module.exports = function (table, header, opts) {
+  table = table.slice();
+  addHeader(table, header, opts);
+  return table;
+};
+
+exports.add = addHeader;

@@ -20,6 +20,7 @@ test('border=false', function (t) {
                 ['green', '#00ff00'],
                 ['blue', '#0000ff']
               ]);
+  t.equal(colors.length, 3);
   t.end();
 });
 
@@ -33,6 +34,7 @@ test('border="_"', function (t) {
                 ['green', '#00ff00'],
                 ['blue', '#0000ff']
               ]);
+  t.equal(colors.length, 3);
   t.end();
 });
 
@@ -47,6 +49,21 @@ test('border=true (default)', function (t) {
                 ['blue', '#0000ff']
               ]);
   t.deepEqual(tableHeader(colors, ['color', 'code'], { border: true }),
+              [
+                ['color', 'code'],
+                ['-----', '-------'],
+                ['red', '#ff0000'],
+                ['green', '#00ff00'],
+                ['blue', '#0000ff']
+              ]);
+  t.equal(colors.length, 3);
+  t.end();
+});
+
+
+test('.add', function (t) {
+  t.equal(tableHeader.add(colors, ['color', 'code']), undefined);
+  t.deepEqual(colors,
               [
                 ['color', 'code'],
                 ['-----', '-------'],

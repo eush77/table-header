@@ -6,7 +6,7 @@
 
 Add header to a text table, with border.
 
-Text table is an array of rows of equal length:
+Text table is array of rows of equal length:
 
 ```js
 var table = [
@@ -45,6 +45,10 @@ If `opts.border` is `false`, no border is set for a header.
 If `opts.border` is a single-character string, it is used to create a border.
 
 If `opts.border` is `true` (the default), the default character is used (`-`).
+
+## `tableHeader.add(table, header, [opts])`
+
+Add header to existing `table`, modifying it.
 
 ## Related
 
