@@ -23,20 +23,23 @@ var addHeader = function (table, header, opts) {
     opts.border = true;
   }
 
+  table.unshift(header);
+
   if (opts.border) {
     if (opts.border == true) {
       opts.border = '-';
     }
-    table.unshift(columnWidths(table, opts.stringLength).map(function (width, i) {
+
+    var border = columnWidths(table, opts.stringLength).map(function (width, i) {
       var headerWidth = opts.stringLength(header[i]);
       if (width < headerWidth) {
         width = headerWidth;
       }
       return repeat(opts.border, width);
-    }));
-  }
+    });
 
-  table.unshift(header);
+    table.splice(1, 0, border);
+  }
 };
 
 

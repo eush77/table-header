@@ -107,3 +107,13 @@ test('add method', function (t) {
               ]);
   t.end();
 });
+
+
+test('empty body', function (t) {
+  t.deepEqual(tableHeader([], ['columnA', 'columnB']),
+              [
+                ['columnA', 'columnB'],
+                ['-------', '-------']
+              ]);
+  t.end();
+});
